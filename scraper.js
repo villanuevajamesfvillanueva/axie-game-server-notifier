@@ -4,7 +4,7 @@ var player = require('play-sound')({ player: "C:\\Program\ Files\ (x86)\\VideoLA
 async function scrape() {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    const URL = 'https://axie.zone/axie-infinity-server-status?fbclid=IwAR3j_6SPFZpnuhnSEPhQOoQSyDEU7yk6ebQmDq6_7A0C-aAxHghUuNhPoWs';
+    const URL = 'https://axie.zone/axie-infinity-server-status';
     await page.goto(URL);
 
     await page.waitForSelector('.ss_gameserver');
@@ -37,4 +37,5 @@ async function scrape() {
     browser.close();
 }
 
+// checking every 10 secs
 setInterval(scrape, 10000);
